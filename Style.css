@@ -1,4 +1,3 @@
-/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +11,15 @@ body {
     background-color: #f5f5f5;
 }
 
+/* Make all images scale nicely */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Navigation Bar */
 nav {
     display: flex;
     justify-content: space-between;
@@ -23,13 +31,14 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    flex-wrap: wrap; /* ✅ allows wrapping on small screens */
+    flex-wrap: wrap;
 }
 
 nav .logo img {
     height: auto;
-    max-width: 150px; /* ✅ keeps logo from being too big */
+    max-width: 150px;
     width: 100%;
+    object-fit: contain;
 }
 
 nav ul {
@@ -38,7 +47,7 @@ nav ul {
     margin: 0;
     padding: 0;
     gap: 20px;
-    flex-wrap: wrap; /* ✅ prevents overflow on small screens */
+    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -59,29 +68,6 @@ nav ul li a:hover {
     border-radius: 5px;
     text-decoration: none;
 }
-
-/* ✅ Mobile friendly tweaks */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        padding: 15px 20px;
-    }
-
-    nav ul {
-        justify-content: center;
-        gap: 10px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-
-    nav .logo img {
-        max-width: 120px; /* ✅ shrink logo slightly on small screens */
-    }
-}
-
 
 /* Hero Section */
 .hero {
@@ -160,7 +146,7 @@ nav ul li a:hover {
 .read-more-btn {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #0052cc; /* Solid blue button */
+    background-color: #0052cc;
     color: #fff;
     font-size: 16px;
     font-weight: 600;
@@ -227,17 +213,18 @@ nav ul li a:hover {
 .contact a:hover {
     text-decoration: underline;
 }
+
 .social-logos {
-        display: flex;
-        gap: 10px; /* Adds space between logos */
-        margin-left: 200px;
-    }
+    display: flex;
+    gap: 10px;
+    margin-left: 200px;
+}
 
 .social-logos img {
-        height: 40px; /* Adjust size as needed */
-        width: auto; /* Maintain aspect ratio */
-        vertical-align: middle; /* Aligns images vertically */
-    }
+    height: 40px;
+    width: auto;
+    vertical-align: middle;
+}
 
 /* Content Section (for Service Pages) */
 .content {
@@ -305,7 +292,7 @@ nav ul li a:hover {
     margin-bottom: 1rem;
 }
 
-/* CTA Section (for Service Pages) */
+/* CTA Section */
 .cta {
     text-align: center;
     padding: 3rem 1rem;
@@ -353,13 +340,19 @@ footer {
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
-        padding: 15px 20px;
+        align-items: center;
+        padding: 10px 20px;
     }
 
     nav ul {
         flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
+        align-items: center;
+        gap: 12px;
+        margin-top: 12px;
+    }
+
+    nav .logo img {
+        max-width: 120px;
     }
 
     .hero {
@@ -389,8 +382,13 @@ footer {
 }
 
 @media (max-width: 480px) {
+    nav .logo img {
+        max-width: 100px;
+    }
+
     .hero {
-        padding: 3rem 1rem;
+        padding: 2.5rem 1rem;
+        background-size: cover;
     }
 
     .hero h2 {
