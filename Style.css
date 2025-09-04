@@ -12,23 +12,24 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Navigation Bar */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff; /* Deep blue from Bidvest Prestige */
+    background-color: #ffffff;
     color: #000000;
     padding: 15px 50px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
+    flex-wrap: wrap; /* ✅ allows wrapping on small screens */
 }
 
 nav .logo img {
     height: auto;
-    max-width: 100%;
+    max-width: 150px; /* ✅ keeps logo from being too big */
+    width: 100%;
 }
 
 nav ul {
@@ -37,10 +38,11 @@ nav ul {
     margin: 0;
     padding: 0;
     gap: 20px;
+    flex-wrap: wrap; /* ✅ prevents overflow on small screens */
 }
 
 nav ul li {
-    margin-left: 0; /* Removed redundant margin */
+    margin-left: 0;
 }
 
 nav ul li a {
@@ -53,10 +55,33 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #7c9dcf; /* Lighter blue for hover */
+    background-color: #7c9dcf;
     border-radius: 5px;
     text-decoration: none;
 }
+
+/* ✅ Mobile friendly tweaks */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    nav .logo img {
+        max-width: 120px; /* ✅ shrink logo slightly on small screens */
+    }
+}
+
 
 /* Hero Section */
 .hero {
